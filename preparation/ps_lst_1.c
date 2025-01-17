@@ -6,11 +6,11 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:37:46 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/14 16:16:11 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/17 15:08:53 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../header/push_swap.h"
 
 t_node	*ps_lstnew(int nb)
 {
@@ -56,4 +56,19 @@ void	ps_lstadd_front(t_node **lst, t_node *new)
 		return ;
 	new->next = *lst;
 	*lst = new;
+}
+
+void	ps_lstclear(t_node **stack)
+{
+	t_node	*tmp;
+
+	if (stack == NULL)
+		return ;
+	while (*stack != NULL)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
+	write(1, "Error\n", 6);
 }

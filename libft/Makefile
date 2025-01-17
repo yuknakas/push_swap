@@ -6,7 +6,7 @@
 #    By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/17 14:57:32 by yuknakas          #+#    #+#              #
-#    Updated: 2025/01/14 14:13:12 by yuknakas         ###   ########.fr        #
+#    Updated: 2025/01/17 15:11:23 by yuknakas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS_MAN)
 	@ar rcs $(NAME) $(OBJS_MAN)
-	echo "> make all executed"
+	@echo "> make all executed"
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
@@ -49,15 +49,15 @@ bonus: $(BONUS_FLAG)
 $(BONUS_FLAG): $(OBJS_MAN) $(OBJS_BON)
 	@ar rcs $(NAME) $(OBJS_BON)
 	@touch $(BONUS_FLAG)
-	echo "> make bonus executed"
+	@echo "> make bonus executed"
 
 clean:
 	@rm -f $(OBJS) $(BONUS_FLAG)
-	echo "> make clean executed"
+	@echo "> make clean executed"
 
 fclean: clean
 	@rm -f $(NAME)
-	echo "> make fclean executed"
+	@echo "> make fclean executed"
 
 re: fclean all
 

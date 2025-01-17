@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_handling.c                                   :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/20 09:17:43 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/14 10:25:34 by yuknakas         ###   ########.fr       */
+/*   Created: 2025/01/17 15:26:35 by yuknakas          #+#    #+#             */
+/*   Updated: 2025/01/17 15:45:25 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include <stdio.h>
+#include "../header/push_swap.h"
 
-int	_p_error(char *str)
+void	_push_swap(t_node **stack_a)
 {
-	if (*str == '1')
-		write(1, "Error\n", 6);
-	else
+	int	stack_len;
+
+	stack_len = ps_lstsize(*stack_a);
+	if (stack_len == 2)
 	{
-		while (*str != '\0')
-		{
-			write(1, str, 1);
-			str++;
-		}
+		if ((*stack_a)->nbr > (*stack_a)->next->nbr)
+			_sa(stack_a, NULL, WRITE_OPR);
 	}
-	return (-1);
+	if (stack_len == 3)
+		_swap_3(stack_a);
 }

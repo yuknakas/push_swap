@@ -6,11 +6,11 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 14:56:16 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/14 12:08:15 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/17 11:01:56 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../header/push_swap.h"
 
 void	_ra(t_node **stack_a, t_node **stack_b, int put_opr)
 {
