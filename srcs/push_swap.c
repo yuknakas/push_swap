@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:26:35 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/17 15:45:25 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/17 15:52:55 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	_push_swap(t_node **stack_a)
 	int	stack_len;
 
 	stack_len = ps_lstsize(*stack_a);
+	printf("stack_len = %d\n", stack_len);
 	if (stack_len == 2)
 	{
 		if ((*stack_a)->nbr > (*stack_a)->next->nbr)

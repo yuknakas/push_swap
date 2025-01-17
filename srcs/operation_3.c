@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 10:27:26 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/17 11:01:56 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/17 16:01:21 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,16 @@
 void	_rra(t_node **stack_a, t_node **stack_b, int put_opr)
 {
 	t_node	*a_last;
+	t_node	*a_second_last;
 
-	if (*stack_a == NULL)
+	if (*stack_a == NULL || (*stack_a)->next == NULL)
 		return ;
 	a_last = ps_lstlast(*stack_a);
+	a_second_last = *stack_a;
+	while (a_second_last->next != a_last)
+		a_second_last = a_second_last->next;
+	a_second_last->next = NULL;
 	ps_lstadd_front(stack_a, a_last);
-	a_last = ps_lstlast(*stack_a);
-	a_last->next = NULL;
 	if (put_opr == WRITE_OPR)
 		write(1, "rra\n", 4);
 	stack_b = UNUSED;
@@ -30,13 +33,16 @@ void	_rra(t_node **stack_a, t_node **stack_b, int put_opr)
 void	_rrb(t_node **stack_a, t_node **stack_b, int put_opr)
 {
 	t_node	*b_last;
+	t_node	*b_second_last;
 
-	if (*stack_b == NULL)
+	if (*stack_b == NULL || (*stack_b)->next == NULL)
 		return ;
 	b_last = ps_lstlast(*stack_b);
-	ps_lstadd_front(stack_b, b_last);
-	b_last = ps_lstlast(*stack_b);
-	b_last->next = NULL;
+	b_second_last = *stack_b;
+	while (b_second_last->next != b_last)
+		b_second_last = b_second_last->next;
+	b_second_last->next = NULL;
+	ps_lstadd_front(stack_a, b_last);
 	if (put_opr == WRITE_OPR)
 		write(1, "rrb\n", 4);
 	stack_a = UNUSED;
