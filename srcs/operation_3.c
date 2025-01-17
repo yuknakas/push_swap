@@ -6,19 +6,19 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 10:27:26 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/17 16:01:21 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/17 16:41:01 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
 
-void	_rra(t_node **stack_a, t_node **stack_b, int put_opr)
+int	_rra(t_node **stack_a, t_node **stack_b, int put_opr)
 {
 	t_node	*a_last;
 	t_node	*a_second_last;
 
 	if (*stack_a == NULL || (*stack_a)->next == NULL)
-		return ;
+		return (0);
 	a_last = ps_lstlast(*stack_a);
 	a_second_last = *stack_a;
 	while (a_second_last->next != a_last)
@@ -28,15 +28,16 @@ void	_rra(t_node **stack_a, t_node **stack_b, int put_opr)
 	if (put_opr == WRITE_OPR)
 		write(1, "rra\n", 4);
 	stack_b = UNUSED;
+	return (1);
 }
 
-void	_rrb(t_node **stack_a, t_node **stack_b, int put_opr)
+int	_rrb(t_node **stack_a, t_node **stack_b, int put_opr)
 {
 	t_node	*b_last;
 	t_node	*b_second_last;
 
 	if (*stack_b == NULL || (*stack_b)->next == NULL)
-		return ;
+		return (0);
 	b_last = ps_lstlast(*stack_b);
 	b_second_last = *stack_b;
 	while (b_second_last->next != b_last)
@@ -46,12 +47,14 @@ void	_rrb(t_node **stack_a, t_node **stack_b, int put_opr)
 	if (put_opr == WRITE_OPR)
 		write(1, "rrb\n", 4);
 	stack_a = UNUSED;
+	return (1);
 }
 
-void	_rrr(t_node **stack_a, t_node **stack_b, int put_opr)
+int	_rrr(t_node **stack_a, t_node **stack_b, int put_opr)
 {
 	_rra(stack_a, stack_b, NO_OPR);
 	_rrb(stack_a, stack_b, NO_OPR);
 	write(1, "rrr\n", 4);
 	put_opr = UNUSED;
+	return (1);
 }

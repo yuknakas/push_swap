@@ -6,13 +6,13 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 11:07:08 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/17 15:24:17 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/17 16:21:03 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
 
-int	_preparation(int argc, char **argv, t_node **stack_a)
+int	_preparation(int argc, char **argv, t_node **stack_a, t_node **stack_b)
 {
 	if (argc < 2)
 		return (1);
@@ -22,6 +22,7 @@ int	_preparation(int argc, char **argv, t_node **stack_a)
 		*stack_a = _make_stack((argc - 1), (argv + 1), NO_OPR);
 	if (*stack_a == NULL)
 		return (1);
+	*stack_b = NULL;
 	return (0);
 }
 

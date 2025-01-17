@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 09:15:39 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/17 15:44:38 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/17 16:42:34 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void		final_results(t_node *stack_a);
 t_node		*_split_stack(char *str);
 void		_free_chardp(char **str);
 //preparation/make_node.c
-int			_preparation(int argc, char **argv, t_node **stack_a);
+int			_preparation(int argc, char **argv, t_node **stack_a, t_node **stack_b);
 static void	*_input_error(t_node **new_stack);
 static int	_check_nbr(char *str, int *nbr);
 static int	_check_dup(t_node **stack_a);
@@ -54,23 +54,29 @@ int			ps_lstsize(t_node *lst);
 
 //push_swap BEGINS!
 //control
-void		_push_swap(t_node **stack_a);
+void		_push_swap(t_node **stack_a, t_node **stack_b);
 
 //swap 3 values
-void		_swap_3(t_node **stack_a);
-void		_swap_3_execute(t_node **stack_a, int diff_value);
+void		_swap_3(t_node **stack);
+void		_swap_3_execute(t_node **stack, int diff_value);
+
+//swap 5 values
+void		_swap_5(t_node **stack_a, t_node **stack_b, int stack_len);
 
 //operations
-void		_sa(t_node **stack_a, t_node **stack_b, int put_opr);
-void		_sb(t_node **stack_a, t_node **stack_b, int put_opr);
-void		_ss(t_node **stack_a, t_node **stack_b, int put_opr);
-void		_pa(t_node **stack_a, t_node **stack_b, int put_opr);
-void		_pb(t_node **stack_a, t_node **stack_b, int put_opr);
-void		_ra(t_node **stack_a, t_node **stack_b, int put_opr);
-void		_rb(t_node **stack_a, t_node **stack_b, int put_opr);
-void		_rr(t_node **stack_a, t_node **stack_b, int put_opr);
-void		_rra(t_node **stack_a, t_node **stack_b, int put_opr);
-void		_rrb(t_node **stack_a, t_node **stack_b, int put_opr);
-void		_rrr(t_node **stack_a, t_node **stack_b, int put_opr);
+int			_sa(t_node **stack_a, t_node **stack_b, int put_opr);
+int			_sb(t_node **stack_a, t_node **stack_b, int put_opr);
+int			_ss(t_node **stack_a, t_node **stack_b, int put_opr);
+int			_pa(t_node **stack_a, t_node **stack_b, int put_opr);
+int			_pb(t_node **stack_a, t_node **stack_b, int put_opr);
+int			_ra(t_node **stack_a, t_node **stack_b, int put_opr);
+int			_rb(t_node **stack_a, t_node **stack_b, int put_opr);
+int			_rr(t_node **stack_a, t_node **stack_b, int put_opr);
+int			_rra(t_node **stack_a, t_node **stack_b, int put_opr);
+int			_rrb(t_node **stack_a, t_node **stack_b, int put_opr);
+int			_rrr(t_node **stack_a, t_node **stack_b, int put_opr);
+
+//free everything
+void		_clean_up(t_node *stack_a, t_node *stack_b);
 
 #endif

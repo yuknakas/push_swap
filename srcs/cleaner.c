@@ -6,17 +6,18 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:31:34 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/17 15:35:31 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/17 16:15:35 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
 #include <stdio.h>
 
-void	final_results(t_node *stack_a)
+void	_clean_up(t_node *stack_a, t_node *stack_b)
 {
 	t_node	*tmp;
 
+	printf("---------- Final Result ----------\n");
 	while (stack_a != NULL)
 	{
 		tmp = stack_a->next;
