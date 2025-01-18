@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 14:13:14 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/17 14:14:08 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/18 14:49:21 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,14 @@
 
 int	ps_lstsize(t_node *lst)
 {
-	int	count;
+	int		count;
+	t_node	*first;
 
-	count = 0;
-	while (lst != NULL)
+	if (lst == NULL)
+		return (0);
+	count = 1;
+	first = lst;
+	while (lst->next != first)
 	{
 		count++;
 		lst = lst->next;

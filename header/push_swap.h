@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 09:15:39 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/17 16:42:34 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/18 14:30:06 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_node
 	int				cost;
 	int				stack;
 	struct s_node	*next;
+	struct s_node	*prev;
 }	t_node;
 
 //main operations
@@ -39,10 +40,11 @@ void		final_results(t_node *stack_a);
 t_node		*_split_stack(char *str);
 void		_free_chardp(char **str);
 //preparation/make_node.c
-int			_preparation(int argc, char **argv, t_node **stack_a, t_node **stack_b);
+int			_preparation(int argc, char **argv,
+				t_node **stack_a, t_node **stack_b);
 static void	*_input_error(t_node **new_stack);
 static int	_check_nbr(char *str, int *nbr);
-static int	_check_dup(t_node **stack_a);
+static int	_check_dup(t_node *stack);
 t_node		*_make_stack(int arr_len, char **char_arr, int should_free);
 //preparation/ps_lst.c
 t_node		*ps_lstnew(int nb);

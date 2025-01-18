@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 11:07:08 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/17 16:21:03 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/18 14:29:54 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,24 +57,24 @@ static int	_check_nbr(char *str, int *nbr)
 	return (0);
 }
 
-static int	_check_dup(t_node **stack_a)
+static int	_check_dup(t_node *stack)
 {
-	t_node	*current;
 	t_node	*compare;
+	t_node	*first;
 
-	if (stack_a == NULL || *stack_a == NULL)
+	if (stack == NULL)
 		return (0);
-	current = *stack_a;
-	while (current->next != NULL)
+	first = stack;
+	while (stack->next != first)
 	{
-		compare = current->next;
-		while (compare != NULL)
+		compare = stack->next;
+		while (compare != first)
 		{
-			if (current->nbr == compare->nbr)
+			if (stack->nbr == compare->nbr)
 				return (1);
 			compare = compare->next;
 		}
-		current = current->next;
+		stack = stack->next;
 	}
 	return (0);
 }
@@ -98,7 +98,7 @@ t_node	*_make_stack(int arr_len, char **char_arr, int should_free)
 	}
 	if (should_free == WRITE_OPR)
 		_free_chardp(char_arr);
-	if (_check_dup(&new_stack) != 0)
+	if (_check_dup(new_stack) != 0)
 		return (_input_error(&new_stack));
 	return (new_stack);
 }

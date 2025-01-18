@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:37:46 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/17 15:08:53 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/18 15:22:04 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ t_node	*ps_lstnew(int nb)
 	if (new == NULL)
 		return (NULL);
 	new->nbr = nb;
-	new->next = NULL;
-	new->cost = INT_MAX;
+	new->next = new;
+	new->prev = new;
+	new->cost = -1;
 	new->stack = 'a';
 	return (new);
 }
@@ -35,26 +36,47 @@ void	ps_lstadd_back(t_node **lst, t_node *new)
 	if (*lst == NULL)
 	{
 		*lst = new;
+		new->next = new;
+		new->prev = new;
 		return ;
 	}
-	last = ps_lstlast(*lst);
+	last = (*lst)->prev;
 	last->next = new;
+	new->prev = last;
+	new->next = *lst;
+	(*lst)->prev = new;
 }
 
 t_node	*ps_lstlast(t_node *lst)
 {
+	t_node	*first;
+
 	if (lst == NULL)
 		return (NULL);
-	while (lst->next != NULL)
+	first = lst;
+	while (lst->next != first && lst->next != NULL)
 		lst = lst->next;
 	return (lst);
 }
 
 void	ps_lstadd_front(t_node **lst, t_node *new)
 {
+	t_node	*last;
+
 	if (new == NULL || lst == NULL)
 		return ;
+	if (*lst == NULL)
+	{
+		*lst = new;
+		new->next = new;
+		new->prev = new;
+		return ;
+	}
+	last = (*lst)->prev;
+	last->next = new;
 	new->next = *lst;
+	new->prev = last;
+	(*lst)->prev = new;
 	*lst = new;
 }
 

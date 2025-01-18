@@ -1,54 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operation_2.c                                      :+:      :+:    :+:   */
+/*   operation_3.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/20 14:56:16 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/17 16:40:58 by yuknakas         ###   ########.fr       */
+/*   Created: 2025/01/08 10:27:26 by yuknakas          #+#    #+#             */
+/*   Updated: 2025/01/18 15:11:11 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/push_swap.h"
+#include "../../header/push_swap.h"
 
-int	_ra(t_node **stack_a, t_node **stack_b, int put_opr)
+int	_rra(t_node **stack_a, t_node **stack_b, int put_opr)
 {
-	t_node	*a2;
+	t_node	*a_last;
+	t_node	*a_second_last;
 
 	if (*stack_a == NULL || (*stack_a)->next == NULL)
 		return (0);
-	a2 = (*stack_a)->next;
-	(*stack_a)->next = NULL;
-	ps_lstadd_back(&a2, *stack_a);
-	*stack_a = a2;
+	*stack_a = (*stack_a)->prev;
 	if (put_opr == WRITE_OPR)
-		write(1, "ra\n", 3);
+		write(1, "rra\n", 4);
 	stack_b = UNUSED;
 	return (1);
 }
 
-int	_rb(t_node **stack_a, t_node **stack_b, int put_opr)
+int	_rrb(t_node **stack_a, t_node **stack_b, int put_opr)
 {
-	t_node	*b2;
+	t_node	*b_last;
+	t_node	*b_second_last;
 
 	if (*stack_b == NULL || (*stack_b)->next == NULL)
 		return (0);
-	b2 = (*stack_b)->next;
-	(*stack_b)->next = NULL;
-	ps_lstadd_back(&b2, *stack_b);
-	*stack_b = b2;
+	*stack_b = (*stack_b)->prev;
 	if (put_opr == WRITE_OPR)
-		write(1, "rb\n", 3);
+		write(1, "rrb\n", 4);
 	stack_a = UNUSED;
 	return (1);
 }
 
-int	_rr(t_node **stack_a, t_node **stack_b, int put_opr)
+int	_rrr(t_node **stack_a, t_node **stack_b, int put_opr)
 {
-	_ra(stack_a, stack_b, NO_OPR);
-	_rb(stack_a, stack_b, NO_OPR);
-	write(1, "rr\n", 3);
+	_rra(stack_a, stack_b, NO_OPR);
+	_rrb(stack_a, stack_b, NO_OPR);
+	write(1, "rrr\n", 4);
 	put_opr = UNUSED;
 	return (1);
 }

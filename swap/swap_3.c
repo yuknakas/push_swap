@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 13:30:31 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/17 16:54:09 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/18 14:48:22 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	_swap_3(t_node **stack)
 	diff_value = 0;
 	if (((*stack)->nbr) > ((*stack)->next->nbr))
 		diff_value += 1;
-	if (((*stack)->nbr) > ((*stack)->next->next->nbr))
+	if (((*stack)->nbr) > ((*stack)->prev->nbr))
 		diff_value += 2;
-	if (((*stack)->next->nbr) > ((*stack)->next->next->nbr))
+	if (((*stack)->next->nbr) > ((*stack)->prev->nbr))
 		diff_value += 4;
 	printf("diff_value = %d\n", diff_value);
 	_swap_3_execute(stack, diff_value);

@@ -6,11 +6,11 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 13:46:32 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/17 16:41:05 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/18 15:20:14 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/push_swap.h"
+#include "../../header/push_swap.h"
 
 int	_sa(t_node **stack_a, t_node **stack_b, int put_opr)
 {
@@ -53,13 +53,22 @@ int	_ss(t_node **stack_a, t_node **stack_b, int put_opr)
 
 int	_pa(t_node **stack_a, t_node **stack_b, int put_opr)
 {
-	t_node	*addr_b2;
+	t_node	*b_2;
+	t_node	*b_last;
 
-	if (*stack_b == NULL)
+	if (*stack_a == NULL || *stack_b == NULL)
 		return (0);
-	addr_b2 = (*stack_b)->next;
+	b_2 = (*stack_b)->next;
+	b_last = (*stack_b)->prev;
 	ps_lstadd_front(stack_a, *stack_b);
-	*stack_b = addr_b2;
+	if (b_2 == *stack_b)
+	{
+		*stack_b = NULL;
+		return (1);
+	}
+	b_2->prev = b_last;
+	b_last->next = b_2;
+	*stack_b = b_2;
 	if (put_opr == WRITE_OPR)
 		write(1, "pa\n", 3);
 	return (1);
@@ -67,13 +76,22 @@ int	_pa(t_node **stack_a, t_node **stack_b, int put_opr)
 
 int	_pb(t_node **stack_a, t_node **stack_b, int put_opr)
 {
-	t_node	*addr_a2;
+	t_node	*a_2;
+	t_node	*a_last;
 
-	if (*stack_a == NULL)
+	if (*stack_a == NULL || *stack_b == NULL)
 		return (0);
-	addr_a2 = (*stack_a)->next;
+	a_2 = (*stack_a)->next;
+	a_last = (*stack_a)->prev;
 	ps_lstadd_front(stack_b, *stack_a);
-	*stack_a = addr_a2;
+	if (a_2 == *stack_a)
+	{
+		*stack_a = NULL;
+		return (1);
+	}
+	a_2->prev = a_last;
+	a_last->next = a_2;
+	*stack_a = a_2;
 	if (put_opr == WRITE_OPR)
 		write(1, "pb\n", 3);
 	return (1);
