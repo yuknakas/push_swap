@@ -6,11 +6,12 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 11:07:08 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/18 14:29:54 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/20 10:46:38 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
+#include <stdio.h>
 
 int	_preparation(int argc, char **argv, t_node **stack_a, t_node **stack_b)
 {
@@ -26,9 +27,10 @@ int	_preparation(int argc, char **argv, t_node **stack_a, t_node **stack_b)
 	return (0);
 }
 
-static void	*_input_error(t_node **new_stack)
+static void	*_input_error(t_node *new_stack)
 {
-	ps_lstclear(new_stack);
+	write(1, "Error\n", 6);
+	_clean_up(new_stack);
 	return (NULL);
 }
 
@@ -92,13 +94,17 @@ t_node	*_make_stack(int arr_len, char **char_arr, int should_free)
 	while (current_node < arr_len)
 	{
 		if (_check_nbr(char_arr[current_node], &new_nbr) != 0)
-			return (_input_error(&new_stack));
+		{
+			if (should_free == WRITE_OPR)
+				_free_chardp(char_arr);
+			return (_input_error(new_stack));
+		}
 		ps_lstadd_back(&new_stack, ps_lstnew(new_nbr));
 		current_node++;
 	}
 	if (should_free == WRITE_OPR)
 		_free_chardp(char_arr);
 	if (_check_dup(new_stack) != 0)
-		return (_input_error(&new_stack));
+		return (_input_error(new_stack));
 	return (new_stack);
 }

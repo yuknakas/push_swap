@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 09:15:39 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/18 14:30:06 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/20 15:37:43 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ typedef struct s_node
 	int				stack;
 	struct s_node	*next;
 	struct s_node	*prev;
+	int				correct_pos;
+	struct s_node	*lis_prev;
 }	t_node;
 
 //main operations
@@ -42,7 +44,7 @@ void		_free_chardp(char **str);
 //preparation/make_node.c
 int			_preparation(int argc, char **argv,
 				t_node **stack_a, t_node **stack_b);
-static void	*_input_error(t_node **new_stack);
+static void	*_input_error(t_node *new_stack);
 static int	_check_nbr(char *str, int *nbr);
 static int	_check_dup(t_node *stack);
 t_node		*_make_stack(int arr_len, char **char_arr, int should_free);
@@ -79,6 +81,6 @@ int			_rrb(t_node **stack_a, t_node **stack_b, int put_opr);
 int			_rrr(t_node **stack_a, t_node **stack_b, int put_opr);
 
 //free everything
-void		_clean_up(t_node *stack_a, t_node *stack_b);
+void		_clean_up(t_node *stack_a);
 
 #endif

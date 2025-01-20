@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 13:46:32 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/18 15:20:14 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/20 09:28:26 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	_pa(t_node **stack_a, t_node **stack_b, int put_opr)
 	t_node	*b_2;
 	t_node	*b_last;
 
-	if (*stack_a == NULL || *stack_b == NULL)
+	if (stack_a == NULL || *stack_b == NULL)
 		return (0);
 	b_2 = (*stack_b)->next;
 	b_last = (*stack_b)->prev;
@@ -64,6 +64,8 @@ int	_pa(t_node **stack_a, t_node **stack_b, int put_opr)
 	if (b_2 == *stack_b)
 	{
 		*stack_b = NULL;
+		if (put_opr == WRITE_OPR)
+			write(1, "pa\n", 3);
 		return (1);
 	}
 	b_2->prev = b_last;
@@ -79,7 +81,7 @@ int	_pb(t_node **stack_a, t_node **stack_b, int put_opr)
 	t_node	*a_2;
 	t_node	*a_last;
 
-	if (*stack_a == NULL || *stack_b == NULL)
+	if (*stack_a == NULL || stack_b == NULL)
 		return (0);
 	a_2 = (*stack_a)->next;
 	a_last = (*stack_a)->prev;
@@ -87,6 +89,8 @@ int	_pb(t_node **stack_a, t_node **stack_b, int put_opr)
 	if (a_2 == *stack_a)
 	{
 		*stack_a = NULL;
+		if (put_opr == WRITE_OPR)
+			write(1, "pb\n", 3);
 		return (1);
 	}
 	a_2->prev = a_last;

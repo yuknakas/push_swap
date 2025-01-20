@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 12:34:34 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/17 14:00:06 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/20 10:23:49 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,15 @@ t_node	*_split_stack(char *str)
 	return (_make_stack(arr_len, char_arr, WRITE_OPR));
 }
 
-void	_free_chardp(char **str)
+void	_free_chardp(char **arr)
 {
-	if (str == NULL || *str == NULL)
-		return ;
-	while (*str != NULL)
+	int	i;
+
+	i = 0;
+	while (arr[i] != NULL)
 	{
-		free(*str);
-		str++;
+		free(arr[i]);
+		i++;
 	}
-	free(str);
+	free(arr);
 }

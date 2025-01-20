@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 09:16:18 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/17 16:39:26 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/20 10:08:06 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	main(int argc, char **argv)
 	if (_preparation(argc, argv, &stack_a, &stack_b) != 0)
 		return (1);
 	_push_swap(&stack_a, &stack_b);
-	_clean_up(stack_a, stack_b);
+	_clean_up(stack_a);
 
 }
 
-//ccw ./srcs/* ./make_stack/* -L./libft -lft -o outprogeam      
+//ccw ./srcs/* ./preparation/* ./swap/*.c ./swap/operations/*.c -L./libft -lft -o push_swap      
