@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 09:15:39 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/22 13:48:59 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/22 15:50:01 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ typedef struct s_node
 	struct s_node	*prev;
 	int				correct_pos;
 	struct s_node	*lis_prev;
+	int				ra;
+	int				rra;
+	int				rb;
+	int				rrb;
 }	t_node;
 
 //main operations
@@ -59,7 +63,7 @@ int			ps_lstsize(t_node *lst);
 //push_swap BEGINS!
 //control
 void		_push_swap(t_node **stack_a, t_node **stack_b);
-void	_push_swap_large(t_node **stack_a, t_node **stack_b, int stack_len);
+void		_push_swap_large(t_node **stack_a, t_node **stack_b, int stack_len);
 
 //swap 3 values
 void		_swap_3(t_node **stack);
@@ -69,7 +73,16 @@ void		_swap_3_execute(t_node **stack, int diff_value);
 void		_swap_5(t_node **stack_a, t_node **stack_b, int stack_len);
 
 //greatest arr
-void	_longest_increacing_subseq(t_node *stack_a, size_t stack_size);
+t_node		*_find_minimum(t_node *first);
+t_node		*_find_maximum(t_node *first);
+t_node		*_find_node(t_node *first, int target);
+void		_longest_increacing_subseq(t_node *stack_a, size_t stack_size);
+
+//cost
+void		_set_cost(t_node *stack_a, t_node *stack_b, int target);
+void		_set_self_cost(t_node *stack_a, t_node *stack_b);
+void		_set_target_cost(t_node *stack_a, t_node *stack_b, int target);
+void		_find_target_top(t_node *stack_a, int target, t_node *stack_b);
 
 
 //operations

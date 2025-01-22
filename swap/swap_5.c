@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:07:25 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/20 10:49:45 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/22 14:50:54 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,20 +39,21 @@ void	_fix_top(t_node **stack)
 			cost += _rra(stack, NULL, WRITE_OPR);
 }
 
-int	_cost_target(t_node *stack, int target)
+int	_cost_target(t_node *first, int target)
 {
 	int		cost;
-	t_node	*first;
+	t_node	*current;
 
-	if (stack->nbr > target && stack->prev->nbr < target)
+	if (first->nbr > target && first->prev->nbr < target)
 		return (0);
 	cost = 1;
-	first = stack;
-	stack = stack->next;
-	while (stack != first && stack->nbr < target)
+	current = first->next;
+	while (current != first && current->nbr < target)
 	{
+		if (current->nbr < current->prev->nbr)
+			return (cost);
 		cost++;
-		stack = stack->next;
+		current = current->next;
 	}
 	return (cost);
 }

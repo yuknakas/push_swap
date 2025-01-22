@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 14:31:42 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/22 14:07:49 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/22 15:27:30 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	_lis_set_pos(t_node *last_node)
 	}
 }
 
-static t_node	*_find_node(t_node *first, int target)
+t_node	*_find_node(t_node *first, int target)
 {
 	t_node	*current;
 
@@ -43,7 +43,6 @@ static void	_lis_cin(int *length, int *arr, t_node *current, t_node *stack)
 	int	i;
 
 	i = 0;
-	printf("current values: %d, %d, %d\n", current->nbr, *length, arr[*length]);
 	while (i < *length)
 	{
 		if (current->nbr < arr[i])
@@ -69,6 +68,7 @@ void	_longest_increacing_subseq(t_node *stack_a, size_t stack_size)
 	int		*lis_arr;
 	int		length;
 	t_node	*current;
+	t_node	*min;
 
 	lis_arr = malloc(stack_size * sizeof(int));
 	if (lis_arr == NULL)
@@ -80,15 +80,6 @@ void	_longest_increacing_subseq(t_node *stack_a, size_t stack_size)
 	{
 		_lis_cin(&length, lis_arr, current, stack_a);
 		current = current->next;
-
-		int j = 0;
-		printf("list: ");
-		while (j < 10)
-		{
-			printf("%d, ", lis_arr[j]);
-			j++;
-		}
-		printf("\n");
 	}
 	_lis_set_pos(_find_node(stack_a, lis_arr[length - 1]));
 	free(lis_arr);
