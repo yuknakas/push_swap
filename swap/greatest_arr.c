@@ -6,18 +6,12 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 14:31:42 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/20 15:50:12 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/22 14:07:49 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "../header/push_swap.h"
-
-static void	_lis_init(t_node *stack, t_node **curr, t_node *arr, int *len)
-{
-	*curr = stack;
-	arr = stack;
-	*curr = (*curr)->next;
-}
 
 static void	_lis_set_pos(t_node *last_node)
 {
@@ -28,46 +22,74 @@ static void	_lis_set_pos(t_node *last_node)
 	}
 }
 
-static int	_lis_clast(t_node **current, t_node **prev, int *arr, int *length)
+static t_node	*_find_node(t_node *first, int target)
 {
-	if (arr[*length - 1] < (*current)->nbr)
+	t_node	*current;
+
+	if (first->nbr == target)
+		return (first);
+	current = first->next;
+	while (current != first)
 	{
-		arr[*length] = (*current)->nbr;
-		(*current)->lis_prev = prev;
-		prev = *current;
-		*length++;
-		return (1);
+		if (current->nbr == target)
+			return (current);
+		current = current->next;
 	}
-	return (0);
+	return (NULL);
 }
 
-static void	_lis_cin(int length, int *arr, t_node *current)
+static void	_lis_cin(int *length, int *arr, t_node *current, t_node *stack)
 {
 	int	i;
 
 	i = 0;
-	while (i < length)
+	printf("current values: %d, %d, %d\n", current->nbr, *length, arr[*length]);
+	while (i < *length)
 	{
-		if (current->nbr < arr[length])
+		if (current->nbr < arr[i])
+		{
+			arr[i] = current->nbr;
+			if (i > 0)
+				current->lis_prev = _find_node(stack, arr[i - 1]);
+			return ;
+		}
+		i++;
 	}
+	if (i == *length && current->nbr > arr[*length - 1])
+	{
+		arr[*length] = current->nbr;
+		current->lis_prev = _find_node(stack, arr[*length - 1]);
+		(*length)++;
+	}
+	return ;
 }
 
 void	_longest_increacing_subseq(t_node *stack_a, size_t stack_size)
 {
-	t_node	*lis_arr;
+	int		*lis_arr;
 	int		length;
 	t_node	*current;
-	t_node	*tmp_lis_prev;
 
-	lis_arr = malloc(stack_size * sizeof(t_node *));
+	lis_arr = malloc(stack_size * sizeof(int));
 	if (lis_arr == NULL)
 		return ;
-	_lis_init(stack_a, &current, &tmp_lis_prev, lis_arr);
+	lis_arr[0] = stack_a->nbr;
+	current = stack_a->next;
 	length = 1;
 	while (current != stack_a)
 	{
-		if (_lis_clast(&current, &tmp_lis_prev, lis_arr, &length) == 0)
-		
+		_lis_cin(&length, lis_arr, current, stack_a);
+		current = current->next;
+
+		int j = 0;
+		printf("list: ");
+		while (j < 10)
+		{
+			printf("%d, ", lis_arr[j]);
+			j++;
+		}
+		printf("\n");
 	}
+	_lis_set_pos(_find_node(stack_a, lis_arr[length - 1]));
 	free(lis_arr);
 }

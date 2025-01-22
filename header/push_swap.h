@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 09:15:39 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/20 15:37:43 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/22 13:48:59 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int			ps_lstsize(t_node *lst);
 //push_swap BEGINS!
 //control
 void		_push_swap(t_node **stack_a, t_node **stack_b);
+void	_push_swap_large(t_node **stack_a, t_node **stack_b, int stack_len);
 
 //swap 3 values
 void		_swap_3(t_node **stack);
@@ -66,6 +67,10 @@ void		_swap_3_execute(t_node **stack, int diff_value);
 
 //swap 5 values
 void		_swap_5(t_node **stack_a, t_node **stack_b, int stack_len);
+
+//greatest arr
+void	_longest_increacing_subseq(t_node *stack_a, size_t stack_size);
+
 
 //operations
 int			_sa(t_node **stack_a, t_node **stack_b, int put_opr);
