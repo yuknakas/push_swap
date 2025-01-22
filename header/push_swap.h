@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 09:15:39 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/22 15:50:01 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/22 16:12:09 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ void		_set_cost(t_node *stack_a, t_node *stack_b, int target);
 void		_set_self_cost(t_node *stack_a, t_node *stack_b);
 void		_set_target_cost(t_node *stack_a, t_node *stack_b, int target);
 void		_find_target_top(t_node *stack_a, int target, t_node *stack_b);
-
 
 //operations
 int			_sa(t_node **stack_a, t_node **stack_b, int put_opr);
