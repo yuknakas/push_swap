@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 15:48:49 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/22 16:06:33 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/24 11:42:39 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	_set_self_cost(t_node *stack_a, t_node *stack_b)
 
 	len_stack = ps_lstsize(stack_a);
 	i = 0;
-	while (i <= len_stack)
+	while (i < len_stack)
 	{
 		stack_a->rra = i;
 		stack_a->ra = len_stack - i;
@@ -30,7 +30,7 @@ void	_set_self_cost(t_node *stack_a, t_node *stack_b)
 		return ;
 	len_stack = ps_lstsize(stack_b);
 	i = 0;
-	while (i <= len_stack)
+	while (i < len_stack)
 	{
 		stack_b->rrb = i;
 		stack_b->rb = len_stack - i;
@@ -42,5 +42,6 @@ void	_set_self_cost(t_node *stack_a, t_node *stack_b)
 void	_set_cost(t_node *stack_a, t_node *stack_b, int target)
 {
 	_set_self_cost(stack_a, stack_b);
-	
+	_set_target_cost_a(stack_a, stack_b, target);
+	_set_target_cost_b(stack_a, stack_b);
 }

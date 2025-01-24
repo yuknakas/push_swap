@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 09:15:39 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/22 16:12:09 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/24 12:51:44 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct s_node
 	int				rra;
 	int				rb;
 	int				rrb;
+	int				rr;
+	int				rrr;
 }	t_node;
 
 //main operations
@@ -80,9 +82,24 @@ void		_longest_increacing_subseq(t_node *stack_a, size_t stack_size);
 
 //cost
 void		_set_cost(t_node *stack_a, t_node *stack_b, int target);
+//individual costs
 void		_set_self_cost(t_node *stack_a, t_node *stack_b);
 void		_set_target_cost(t_node *stack_a, t_node *stack_b, int target);
 void		_find_target_top(t_node *stack_a, int target, t_node *stack_b);
+void		_find_target_bottom(t_node *stack_a, int target, t_node *stack_b);
+t_node		*_next_set(t_node *first);
+void		_set_edge(t_node *a, t_node *low, t_node *high, t_node *target);
+void		_set_push_back_cost_a(t_node *stack_a, t_node *stack_b);
+void		_set_target_cost_b(t_node *stack_a, t_node *stack_b);
+//set cost
+void		_add_cost_a(t_node *target);
+void		_add_cost(t_node *stack_a, t_node *stack_b);
+void		_set_cheapest(t_node *target_node);
+int			_find_cheapest(int a, int b, int c, int d);
+void		_ra_rb(t_node *target_node);
+void		_ra_rrb(t_node *target_node);
+void		_rra_rb(t_node *target_node);
+void		_rra_rrb(t_node *target_node);
 
 //operations
 int			_sa(t_node **stack_a, t_node **stack_b, int put_opr);
