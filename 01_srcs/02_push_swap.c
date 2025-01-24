@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   02_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:26:35 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/22 14:54:30 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/24 15:00:07 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "../header/push_swap.h"
 
-void	_push_swap(t_node **stack_a, t_node **stack_b)
+void	ps_push_swap(t_node **stack_a, t_node **stack_b)
 {
 	int	stack_len;
 

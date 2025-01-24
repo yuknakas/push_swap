@@ -6,13 +6,13 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 13:27:28 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/24 14:43:34 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/24 15:08:10 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
 
-t_node	*_chose_min_a(t_node *stack_a)
+static t_node	*_chose_min_a(t_node *stack_a)
 {
 	t_node	*min_a;
 	t_node	*current;
@@ -28,7 +28,7 @@ t_node	*_chose_min_a(t_node *stack_a)
 	return (min_a);
 }
 
-t_node	*_chose_min_b(t_node *stack_b)
+static t_node	*_chose_min_b(t_node *stack_b)
 {
 	t_node	*min_b;
 	t_node	*current;

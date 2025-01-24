@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_cost_3.c                                       :+:      :+:    :+:   */
+/*   03_target_cost_b.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 09:51:29 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/24 11:28:05 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/24 15:13:33 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
 
-t_node	*_next_set(t_node *first)
+static t_node	*_next_set(t_node *first)
 {
 	t_node	*current;
 
@@ -22,7 +22,7 @@ t_node	*_next_set(t_node *first)
 	return (current);
 }
 
-void	_set_edge(t_node *start_a, t_node *low, t_node *high, t_node *target)
+static void	_set_edge(t_node *start_a, t_node *low, t_node *high, t_node *target)
 {
 	while (low != start_a)
 	{
@@ -48,7 +48,7 @@ void	_set_edge(t_node *start_a, t_node *low, t_node *high, t_node *target)
 	target->rra = 0;
 }
 
-void	_set_push_back_cost(t_node *stack_a, t_node *target_node)
+static void	_set_push_back_cost(t_node *stack_a, t_node *target_node)
 {
 	int		cost;
 	int		target;

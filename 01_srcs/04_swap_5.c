@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_5.c                                           :+:      :+:    :+:   */
+/*   04_swap_5.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:07:25 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/24 14:46:07 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/24 14:59:46 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	_swap_5(t_node **stack_a, t_node **stack_b, int stack_len)
 	while (stack_len > 3)
 		stack_len -= _pb(stack_a, stack_b, WRITE_OPR);
 	_swap_3(stack_a);
-	_push_swap(stack_b, NULL);
+	ps_push_swap(stack_b, NULL);
 	_push_back_5(stack_a, stack_b);
 	_fix_top(stack_a);
 }

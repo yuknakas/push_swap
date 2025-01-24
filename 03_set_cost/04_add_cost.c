@@ -6,13 +6,13 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:29:34 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/24 12:50:38 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/24 15:16:30 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
 
-void	_add_cost_a(t_node *target)
+static void	_add_cost_a(t_node *target)
 {
 	if (target->correct_pos == 1)
 		target->cost = INT_MAX;
@@ -20,29 +20,7 @@ void	_add_cost_a(t_node *target)
 		_set_cheapest(target);
 }
 
-void	_add_cost(t_node *stack_a, t_node *stack_b)
-{
-	t_node	*current;
-
-	_add_cost_a(stack_a);
-	current = stack_a->next;
-	while (current != stack_a)
-	{
-		_add_cost_a(current);
-		current = current->next;
-	}
-	if (stack_b == NULL)
-		return ;
-	_set_cheapest(stack_b);
-	current = stack_b->next;
-	while (current != stack_b)
-	{
-		_set_cheapest(current);
-		current = current->next;
-	}
-}
-
-void	_set_cheapest(t_node *target_node)
+static void	_set_cheapest(t_node *target_node)
 {
 	int	cost_ra_rb;
 	int	cost_ra_rrb;
@@ -67,4 +45,26 @@ void	_set_cheapest(t_node *target_node)
 		_rra_rb(target_node);
 	else
 		_rra_rrb(target_node);
+}
+
+void	_add_cost(t_node *stack_a, t_node *stack_b)
+{
+	t_node	*current;
+
+	_add_cost_a(stack_a);
+	current = stack_a->next;
+	while (current != stack_a)
+	{
+		_add_cost_a(current);
+		current = current->next;
+	}
+	if (stack_b == NULL)
+		return ;
+	_set_cheapest(stack_b);
+	current = stack_b->next;
+	while (current != stack_b)
+	{
+		_set_cheapest(current);
+		current = current->next;
+	}
 }

@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   02_split_stack.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/20 09:16:18 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/20 10:08:06 by yuknakas         ###   ########.fr       */
+/*   Created: 2025/01/17 12:34:34 by yuknakas          #+#    #+#             */
+/*   Updated: 2025/01/24 15:03:48 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
-#include <stdio.h>
 
-int	main(int argc, char **argv)
+t_node	*_split_stack(char *str)
 {
-	t_node	*stack_a;
-	t_node	*stack_b;
+	char	**char_arr;
+	int		arr_len;
 
-	stack_a = NULL;
-	if (_preparation(argc, argv, &stack_a, &stack_b) != 0)
-		return (1);
-	_push_swap(&stack_a, &stack_b);
-	_clean_up(stack_a);
-
+	if (str == NULL)
+		return (NULL);
+	char_arr = ft_split(str, ' ');
+	if (char_arr == NULL)
+		return (NULL);
+	arr_len = 0;
+	while (char_arr[arr_len] != NULL)
+		arr_len++;
+	return (_make_stack(arr_len, char_arr, WRITE_OPR));
 }
-
-//ccw ./srcs/* ./preparation/* ./swap/*.c ./swap/operations/*.c -L./libft -lft -o push_swap      

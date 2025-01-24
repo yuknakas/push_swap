@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_cost_2.c                                       :+:      :+:    :+:   */
+/*   02_target_cost_a.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:06:36 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/24 11:23:29 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/24 15:12:41 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
 
-void	_find_target_top(t_node *stack_a, int target, t_node *stack_b)
+static void	_find_target_top(t_node *stack_a, int target, t_node *stack_b)
 {
 	int	count;
 
@@ -36,7 +36,7 @@ void	_find_target_top(t_node *stack_a, int target, t_node *stack_b)
 	stack_a->rrb = count;
 }
 
-void	_find_target_bottom(t_node *stack_a, int target, t_node *stack_b)
+static void	_find_target_bottom(t_node *stack_a, int target, t_node *stack_b)
 {
 	int	count;
 

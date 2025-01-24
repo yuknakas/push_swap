@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   greatest_arr.c                                     :+:      :+:    :+:   */
+/*   10_greatest_arr.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 14:31:42 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/22 15:27:30 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/24 14:55:32 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,6 @@ static void	_lis_set_pos(t_node *last_node)
 		last_node->correct_pos = 1;
 		last_node = last_node->lis_prev;
 	}
-}
-
-t_node	*_find_node(t_node *first, int target)
-{
-	t_node	*current;
-
-	if (first->nbr == target)
-		return (first);
-	current = first->next;
-	while (current != first)
-	{
-		if (current->nbr == target)
-			return (current);
-		current = current->next;
-	}
-	return (NULL);
 }
 
 static void	_lis_cin(int *length, int *arr, t_node *current, t_node *stack)
