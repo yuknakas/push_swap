@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_cost.c                                         :+:      :+:    :+:   */
+/*   01_self_cost.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 15:48:49 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/24 11:42:39 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/24 14:43:54 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	_set_self_cost(t_node *stack_a, t_node *stack_b)
 	}
 }
 
-void	_set_cost(t_node *stack_a, t_node *stack_b, int target)
+void	ps_set_cost(t_node *stack_a, t_node *stack_b, int target)
 {
 	_set_self_cost(stack_a, stack_b);
 	_set_target_cost_a(stack_a, stack_b, target);

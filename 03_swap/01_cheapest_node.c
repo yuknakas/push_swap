@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 13:27:28 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/24 14:32:29 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/24 14:43:34 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_node	*_chose_min_b(t_node *stack_b)
 	return (min_b);
 }
 
-void	_chose_cheapest_node(t_node **stack_a, t_node **stack_b)
+void	ps_execute_cheapest_node(t_node **stack_a, t_node **stack_b)
 {
 	t_node	*min_a;
 	t_node	*min_b;

@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 09:15:39 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/24 14:33:08 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/24 14:47:41 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,10 @@ t_node		*_find_minimum(t_node *first);
 t_node		*_find_maximum(t_node *first);
 t_node		*_find_node(t_node *first, int target);
 void		_longest_increacing_subseq(t_node *stack_a, size_t stack_size);
+void		_fix_top(t_node **stack);
 
 //cost
-void		_set_cost(t_node *stack_a, t_node *stack_b, int target);
+void		ps_set_cost(t_node *stack_a, t_node *stack_b, int target);
 //individual costs
 void		_set_self_cost(t_node *stack_a, t_node *stack_b);
 void		_set_target_cost(t_node *stack_a, t_node *stack_b, int target);
@@ -100,9 +101,9 @@ void		_rra_rrb(t_node *target_node);
 
 //swap
 //cheapest_node
+void		ps_execute_cheapest_node(t_node **stack_a, t_node **stack_b);
 t_node		*_chose_min_a(t_node *stack_a);
 t_node		*_chose_min_b(t_node *stack_b);
-void		_chose_cheapest_node(t_node **stack_a, t_node **stack_b);
 void		_exc_min(t_node **a, t_node **b, t_node *min_node, char c);
 
 //operations
@@ -120,5 +121,8 @@ int			_rrr(t_node **stack_a, t_node **stack_b, int put_opr);
 
 //free everything
 void		_clean_up(t_node *stack_a);
+
+//checker
+int			_checker(t_node **stack_a, t_node **stack_b);
 
 #endif
