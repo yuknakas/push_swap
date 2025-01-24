@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 09:15:39 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/24 12:51:44 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/24 14:33:08 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,11 @@ int			ps_lstsize(t_node *lst);
 //control
 void		_push_swap(t_node **stack_a, t_node **stack_b);
 void		_push_swap_large(t_node **stack_a, t_node **stack_b, int stack_len);
-
 //swap 3 values
 void		_swap_3(t_node **stack);
 void		_swap_3_execute(t_node **stack, int diff_value);
-
 //swap 5 values
 void		_swap_5(t_node **stack_a, t_node **stack_b, int stack_len);
-
 //greatest arr
 t_node		*_find_minimum(t_node *first);
 t_node		*_find_maximum(t_node *first);
@@ -100,6 +97,13 @@ void		_ra_rb(t_node *target_node);
 void		_ra_rrb(t_node *target_node);
 void		_rra_rb(t_node *target_node);
 void		_rra_rrb(t_node *target_node);
+
+//swap
+//cheapest_node
+t_node		*_chose_min_a(t_node *stack_a);
+t_node		*_chose_min_b(t_node *stack_b);
+void		_chose_cheapest_node(t_node **stack_a, t_node **stack_b);
+void		_exc_min(t_node **a, t_node **b, t_node *min_node, char c);
 
 //operations
 int			_sa(t_node **stack_a, t_node **stack_b, int put_opr);
