@@ -6,19 +6,11 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:29:34 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/24 15:16:30 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/24 15:53:57 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
-
-static void	_add_cost_a(t_node *target)
-{
-	if (target->correct_pos == 1)
-		target->cost = INT_MAX;
-	else
-		_set_cheapest(target);
-}
 
 static void	_set_cheapest(t_node *target_node)
 {
@@ -45,6 +37,14 @@ static void	_set_cheapest(t_node *target_node)
 		_rra_rb(target_node);
 	else
 		_rra_rrb(target_node);
+}
+
+static void	_add_cost_a(t_node *target)
+{
+	if (target->correct_pos == 1)
+		target->cost = INT_MAX;
+	else
+		_set_cheapest(target);
 }
 
 void	_add_cost(t_node *stack_a, t_node *stack_b)

@@ -6,11 +6,11 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 13:46:32 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/24 15:06:29 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/24 15:51:39 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../header/push_swap.h"
+#include "../header/push_swap.h"
 
 int	_sa(t_node **stack_a, t_node **stack_b, int put_opr)
 {
@@ -60,6 +60,7 @@ int	_pa(t_node **stack_a, t_node **stack_b, int put_opr)
 		return (0);
 	b_2 = (*stack_b)->next;
 	b_last = (*stack_b)->prev;
+	(*stack_b)->correct_pos = 1;
 	ps_lstadd_front(stack_a, *stack_b);
 	if (b_2 == *stack_b)
 	{

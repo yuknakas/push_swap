@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operation_3.c                                      :+:      :+:    :+:   */
+/*   12_operation_3.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 10:27:26 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/18 15:11:11 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/24 15:51:39 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../header/push_swap.h"
+#include "../header/push_swap.h"
 
 int	_rra(t_node **stack_a, t_node **stack_b, int put_opr)
 {

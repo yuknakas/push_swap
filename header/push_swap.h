@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 14:49:05 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/24 15:19:10 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/24 16:51:31 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void		_rra_rrb(t_node *target_node);
 int			_find_cheapest(int a, int b, int c, int d);
 
 //BON_01_Checker
-int			_checker(t_node **stack_a, t_node **stack_b);
+int			_checker(t_node *stack_a, t_node *stack_b);
 
 //04_swap
 void		ps_execute_cheapest_node(t_node **stack_a, t_node **stack_b);
@@ -101,5 +101,8 @@ int			_rr(t_node **stack_a, t_node **stack_b, int put_opr);
 int			_rra(t_node **stack_a, t_node **stack_b, int put_opr);
 int			_rrb(t_node **stack_a, t_node **stack_b, int put_opr);
 int			_rrr(t_node **stack_a, t_node **stack_b, int put_opr);
+
+//tester
+void	_check_lis(t_node *stack_a);
 
 #endif

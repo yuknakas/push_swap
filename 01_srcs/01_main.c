@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 09:16:18 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/24 14:59:46 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/24 16:17:12 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,5 @@ int	main(int argc, char **argv)
 
 }
 
-//ccw ./srcs/* ./preparation/* ./swap/*.c ./swap/operations/*.c -L./libft -lft -o push_swap      
+//ccw ./srcs/* ./preparation/* ./swap/*.c ./swap/operations/*.c -L./libft -lft -o push_swap
+//cc ./01_srcs/* ./02_preparation/* ./04_swap/*.c ./03_set_cost/*.c ./BON_01_Checker/*.c  -L./libft -lft -o push_swap

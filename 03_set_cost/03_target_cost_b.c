@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 09:51:29 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/24 15:13:33 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/24 16:19:55 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,30 +22,30 @@ static t_node	*_next_set(t_node *first)
 	return (current);
 }
 
-static void	_set_edge(t_node *start_a, t_node *low, t_node *high, t_node *target)
+static void	_set_edge(t_node *start_a, t_node *low, t_node *high, t_node *aim)
 {
 	while (low != start_a)
 	{
 		if (low == high)
 		{
-			target->rra = 0;
+			aim->rra = 0;
 			while (start_a != low)
 			{
-				target->rra++;
+				aim->rra++;
 				start_a = start_a->next;
 			}
-			target->ra = 0;
+			aim->ra = 0;
 			while (start_a != high)
 			{
-				target->ra++;
+				aim->ra++;
 				start_a = start_a->prev;
 			}
 			return ;
 		}
 		low = low->next;
 	}
-	target->ra = 0;
-	target->rra = 0;
+	aim->ra = 0;
+	aim->rra = 0;
 }
 
 static void	_set_push_back_cost(t_node *stack_a, t_node *target_node)
@@ -54,7 +54,7 @@ static void	_set_push_back_cost(t_node *stack_a, t_node *target_node)
 	int		target;
 	t_node	*set_node;
 
-	set_node = _find_next_set_node(stack_a->prev);
+	set_node = _next_set(stack_a->prev);
 	target = target_node->nbr;
 	while (set_node->nbr < _next_set(set_node)->nbr)
 	{
@@ -75,7 +75,7 @@ void	_set_target_cost_b(t_node *stack_a, t_node *stack_b)
 	current = stack_b->next;
 	while (current != stack_b)
 	{
-		_set_oush_back_cost(stack_a, current);
-		current == current->next;
+		_set_push_back_cost(stack_a, current);
+		current = current->next;
 	}
 }
