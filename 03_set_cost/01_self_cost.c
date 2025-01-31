@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 15:48:49 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/31 14:19:17 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/31 16:56:13 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ static void	_set_self_cost(t_node *stack_a, t_node *stack_b)
 	if (stack_b == NULL)
 		return ;
 	len_stack = ps_lstsize(stack_b);
-	i = 1;
+	i = 0;
 	while (i < len_stack)
 	{
 		stack_b->rb = i;
-		stack_b->rrb = len_stack - i - 1;
+		stack_b->rrb = len_stack - i;
 		stack_b = stack_b->next;
 		i++;
 	}

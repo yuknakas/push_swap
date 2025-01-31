@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 14:54:02 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/31 15:10:45 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/31 15:44:33 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	_swap_100(t_node **stack_a, t_node **stack_b)
 	target = (_find_minimum(*stack_a)->nbr + _find_maximum(*stack_a)->nbr) / 2;
 	_check_lis(*stack_a);
 	// while (_checker(_find_minimum(*stack_a), *stack_b) != 0)
-	while (i++ < 10)
+	while (i++ < 15)
 	{
 		printf("======= ROUND %d =======\n", i);
 		ps_set_cost(*stack_a, *stack_b, target);
