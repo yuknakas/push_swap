@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:37:46 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/24 16:57:26 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/31 14:52:09 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ t_node	*ps_lstnew(int nb)
 	new->next = new;
 	new->prev = new;
 	new->cost = 0;
+	new->ra = 0;
+	new->rb = 0;
+	new->rr = 0;
+	new->rra = 0;
+	new->rrb = 0;
+	new->rrr = 0;
 	new->correct_pos = -1;
 	new->lis_prev = NULL;
 	return (new);

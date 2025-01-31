@@ -6,11 +6,12 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:29:34 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/24 15:53:57 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/31 13:41:13 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
+#include <stdio.h>
 
 static void	_set_cheapest(t_node *target_node)
 {
@@ -19,6 +20,13 @@ static void	_set_cheapest(t_node *target_node)
 	int	cost_rra_rb;
 	int	cost_rra_rrb;
 	int	min;
+
+	printf("-------- node: %d ----------\n", target_node->nbr);
+	printf("ra = %d\n", target_node->ra);
+	printf("rb = %d\n", target_node->rb);
+	printf("rra = %d\n", target_node->rra);
+	printf("rrb = %d\n", target_node->rrb);
+	printf("----------------\n");
 
 	cost_ra_rb = target_node->ra;
 	if (target_node->ra <= target_node->rb)

@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:26:35 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/24 15:23:39 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/01/31 10:37:34 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ps_push_swap(t_node **stack_a, t_node **stack_b)
 
 void	_push_swap_large(t_node **stack_a, t_node **stack_b, int stack_len)
 {
-	_longest_increacing_subseq(_find_minimum(*stack_a), stack_len);
+	_longest_increacing_subseq(*stack_a, stack_len);
 	if (stack_len < 120)
 		_swap_100 (stack_a, stack_b);
 }
