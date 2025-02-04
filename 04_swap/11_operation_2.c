@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 14:56:16 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/24 15:51:39 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/02/04 09:20:44 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	_rb(t_node **stack_a, t_node **stack_b, int put_opr)
 
 	if (*stack_b == NULL || (*stack_b)->next == NULL)
 		return (0);
-	*stack_a = (*stack_a)->next;
+	*stack_b = (*stack_b)->next;
 	if (put_opr == WRITE_OPR)
 		write(1, "rb\n", 3);
 	stack_a = UNUSED;
