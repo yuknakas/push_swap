@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:37:46 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/31 14:52:09 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/02/04 11:58:34 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ t_node	*ps_lstnew(int nb)
 	new->rrr = 0;
 	new->correct_pos = -1;
 	new->lis_prev = NULL;
+	new->section = -1;
 	return (new);
 }
 

@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 09:16:18 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/24 16:17:12 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/02/04 12:27:58 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	main(int argc, char **argv)
 		return (1);
 	ps_push_swap(&stack_a, &stack_b);
 	_clean_up(stack_a);
-
 }
 
 //ccw ./srcs/* ./preparation/* ./swap/*.c ./swap/operations/*.c -L./libft -lft -o push_swap

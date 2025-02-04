@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 14:49:05 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/24 16:51:31 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/02/04 15:35:18 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_node
 	int				rrb;
 	int				rr;
 	int				rrr;
+	int				section;
 }	t_node;
 
 //01_main operations
@@ -50,6 +51,7 @@ int			_cost_target(t_node *first, int target);
 //swap_large
 void		_push_swap_large(t_node **a, t_node **b, int stack_len);
 void		_swap_100(t_node **stack_a, t_node **stack_b);
+void		_swap_500(t_node **stack_a, t_node **stack_b);
 //utils
 void		_longest_increacing_subseq(t_node *stack_a, size_t stack_size);
 t_node		*_find_node(t_node *first, int target);
@@ -72,10 +74,10 @@ void		ps_lstclear(t_node **stack);
 int			ps_lstsize(t_node *lst);
 
 //03_set_cost
-void		ps_set_cost(t_node *stack_a, t_node *stack_b, int target);
-void		_set_target_cost_a(t_node *stack_a, t_node *stack_b, int target);
+void		ps_set_cost(t_node *stack_a, t_node *stack_b);
 void		_set_target_cost_b(t_node *stack_a, t_node *stack_b);
-void		_add_cost(t_node *stack_a, t_node *stack_b);
+void		_add_cost(t_node *stack);
+t_node		*_next_set(t_node *first);
 //utils
 void		_ra_rb(t_node *target_node);
 void		_ra_rrb(t_node *target_node);
@@ -87,9 +89,16 @@ int			_find_cheapest(int a, int b, int c, int d);
 int			_checker(t_node *stack_a, t_node *stack_b);
 
 //04_swap
-void		ps_execute_cheapest_node(t_node **stack_a, t_node **stack_b);
+void		_set_stack_b(t_node **stack_a, t_node **stack_b, int target);
+void		_set_big_stack_b(t_node **stack_a, t_node **stack_b);
+void		ps_execute_cheapest_node(t_node **a, t_node **b, char c);
 void		_exc_min(t_node **a, t_node **b, t_node *min_node, char c);
 //operations
+void		_set_self_cost_a(t_node *stack_a);
+void		_normal_section(t_node *target, t_node *stack_b);
+void		_largest_section(t_node *target, t_node *stack_b);
+void		_smallest_section(t_node *target, t_node *stack_b);
+void		_new_section(t_node *target, t_node *stack_b);
 int			_sa(t_node **stack_a, t_node **stack_b, int put_opr);
 int			_sb(t_node **stack_a, t_node **stack_b, int put_opr);
 int			_ss(t_node **stack_a, t_node **stack_b, int put_opr);

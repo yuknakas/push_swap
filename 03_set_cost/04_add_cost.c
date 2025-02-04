@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:29:34 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/31 13:41:13 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/02/04 15:27:44 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ static void	_set_cheapest(t_node *target_node)
 	int	cost_rra_rrb;
 	int	min;
 
-	printf("-------- node: %d ----------\n", target_node->nbr);
-	printf("ra = %d\n", target_node->ra);
-	printf("rb = %d\n", target_node->rb);
-	printf("rra = %d\n", target_node->rra);
-	printf("rrb = %d\n", target_node->rrb);
-	printf("----------------\n");
+	// printf("-------- node: %d ----------\n", target_node->nbr);
+	// printf("ra = %d\n", target_node->ra);
+	// printf("rb = %d\n", target_node->rb);
+	// printf("rra = %d\n", target_node->rra);
+	// printf("rrb = %d\n", target_node->rrb);
+	// printf("----------------\n");
 
 	cost_ra_rb = target_node->ra;
 	if (target_node->ra <= target_node->rb)
@@ -47,30 +47,15 @@ static void	_set_cheapest(t_node *target_node)
 		_rra_rrb(target_node);
 }
 
-static void	_add_cost_a(t_node *target)
-{
-	if (target->correct_pos == 1)
-		target->cost = INT_MAX;
-	else
-		_set_cheapest(target);
-}
-
-void	_add_cost(t_node *stack_a, t_node *stack_b)
+void	_add_cost(t_node *stack)
 {
 	t_node	*current;
 
-	_add_cost_a(stack_a);
-	current = stack_a->next;
-	while (current != stack_a)
-	{
-		_add_cost_a(current);
-		current = current->next;
-	}
-	if (stack_b == NULL)
+	if (stack == NULL)
 		return ;
-	_set_cheapest(stack_b);
-	current = stack_b->next;
-	while (current != stack_b)
+	_set_cheapest(stack);
+	current = stack->next;
+	while (current != stack)
 	{
 		_set_cheapest(current);
 		current = current->next;
