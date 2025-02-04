@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 14:41:47 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/31 11:50:30 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:11:53 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,4 @@ void	_check_lis(t_node *stack_a)
 		printf("LIS: ");
 	printf("%d\n", stack_a->nbr);
 	printf("-------------------------------\n");
-
 }
