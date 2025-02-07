@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 14:49:05 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/02/07 10:32:22 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/02/07 11:27:07 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,14 +91,11 @@ int			_checker(t_node *stack_a, t_node *stack_b);
 //04_swap
 void		_set_stack_b(t_node **stack_a, t_node **stack_b, int target);
 void		_set_big_stack_b(t_node **stack_a, t_node **stack_b);
+void		_set_section_cost(t_node *target, t_node *stack_b);
+int			_check_present_section(t_node *target, t_node *stack_b);
 void		ps_execute_cheapest_node(t_node **a, t_node **b, char c);
 void		_exc_min(t_node **a, t_node **b, t_node *min_node, char c);
 //operations
-void		_set_self_cost_a(t_node *stack_a);
-void		_normal_section(t_node *target, t_node *stack_b);
-void		_largest_section(t_node *target, t_node *stack_b);
-void		_smallest_section(t_node *target, t_node *stack_b);
-void		_new_section(t_node *target, t_node *stack_b);
 int			_sa(t_node **stack_a, t_node **stack_b, int put_opr);
 int			_sb(t_node **stack_a, t_node **stack_b, int put_opr);
 int			_ss(t_node **stack_a, t_node **stack_b, int put_opr);

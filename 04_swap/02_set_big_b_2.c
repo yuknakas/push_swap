@@ -6,13 +6,13 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 12:41:40 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/02/07 10:31:16 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/02/07 11:27:37 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
 
-void	_normal_section(t_node *target, t_node *stack_b)
+static void	_normal_section(t_node *target, t_node *stack_b)
 {
 	int		aim_section;
 	t_node	*last;
@@ -33,7 +33,7 @@ void	_normal_section(t_node *target, t_node *stack_b)
 	}
 }
 
-void	_largest_section(t_node *target, t_node *stack_b)
+static void	_largest_section(t_node *target, t_node *stack_b)
 {
 	t_node	*max_node;
 
@@ -47,7 +47,7 @@ void	_largest_section(t_node *target, t_node *stack_b)
 	target->rrb = ps_lstsize(stack_b) - target->rb;
 }
 
-void	_smallest_section(t_node *target, t_node *stack_b)
+static void	_smallest_section(t_node *target, t_node *stack_b)
 {
 	t_node	*min_node;
 
@@ -61,7 +61,7 @@ void	_smallest_section(t_node *target, t_node *stack_b)
 	target->rrb = ps_lstsize(stack_b) - target->rb;
 }
 
-void	_new_section(t_node *target, t_node *stack_b)
+static void	_new_section(t_node *target, t_node *stack_b)
 {
 	target->rb = 1;
 	while (1)
@@ -77,20 +77,23 @@ void	_new_section(t_node *target, t_node *stack_b)
 	target->rrb = ps_lstsize(stack_b) - target->rb;
 }
 
-void	_set_self_cost_a(t_node *stack_a)
+void	_set_section_cost(t_node *target, t_node *stack_b)
 {
-	int	len_stack_a;
-	int	i;
+	int	choice;
 
-	if (stack_a == NULL)
-		return ;
-	len_stack_a = ps_lstsize(stack_a);
-	i = 0;
-	while (i < len_stack_a)
+	if (stack_b == NULL)
 	{
-		stack_a->ra = i;
-		stack_a->rra = len_stack_a - i;
-		stack_a = stack_a->next;
-		i++;
+		target->rb = 0;
+		target->rrb = 0;
+		return ;
 	}
+	choice = _check_present_section(target, stack_b);
+	if (choice == 1)
+		_normal_section(target, stack_b);
+	else if (choice == 9)
+		_largest_section(target, stack_b);
+	else if (choice == -1)
+		_smallest_section(target, stack_b);
+	else if (choice == 0)
+		_new_section(target, stack_b);
 }

@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 11:35:27 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/02/04 12:32:24 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/02/07 11:43:22 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ static void	_set_sec_array(int *sections, t_node *max_node, t_node *min_node)
 	int	sixth;
 	int	i;
 
-	sixth = (max_node->nbr - min_node->nbr) / 6;
+	sixth = ((max_node->nbr / 6) - (min_node->nbr / 6));
 	i = 0;
 	while (i < 5)
 	{
-		sections[i] = sixth * (i + 1);
+		sections[i] = min_node->nbr + sixth * (i + 1);
 		i++;
 	}
 }
@@ -35,13 +35,13 @@ static void	_applicable_section(t_node *target, int *sections)
 	{
 		if (target->nbr < sections[i])
 		{
-			target->section = i;
+			target->section = 1;
 			return ;
 		}
 		i++;
 	}
 	if (target->nbr > sections[4])
-		target->section = i;
+		target->section = 1;
 }
 
 static void	_set_section(int *sections, t_node *stack_a)

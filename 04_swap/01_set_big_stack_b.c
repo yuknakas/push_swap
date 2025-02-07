@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 09:57:23 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/02/07 10:31:08 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/02/07 11:27:40 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ static int	_check_all_lis(t_node *stack_a)
 	return (1);
 }
 
-static int	_check_present_section(t_node *target, t_node *stack_b)
+int	_check_present_section(t_node *target, t_node *stack_b)
 {
 	t_node	*first;
 
 	if (target->section > _find_maximum(stack_b)->section)
-		return (2);
+		return (9);
 	if (target->section < _find_minimum(stack_b)->section)
-		return (3);
+		return (-1);
 	first = stack_b;
 	if (stack_b->section == target->section)
 		return (1);
@@ -50,27 +50,6 @@ static int	_check_present_section(t_node *target, t_node *stack_b)
 	return (0);
 }
 
-static void	_set_section_cost(t_node *target, t_node *stack_b)
-{
-	int	choice;
-
-	if (stack_b == NULL)
-	{
-		target->rb = 0;
-		target->rrb = 0;
-		return ;
-	}
-	choice = _check_present_section(target, stack_b);
-	if (choice == 1)
-		_normal_section(target, stack_b);
-	else if (choice == 2)
-		_largest_section(target, stack_b);
-	else if (choice == 3)
-		_smallest_section(target, stack_b);
-	else if (choice == 0)
-		_new_section(target, stack_b);
-}
-
 static void	_set_big_b_cost(t_node *stack_a, t_node *stack_b)
 {
 	t_node	*current;
@@ -81,6 +60,24 @@ static void	_set_big_b_cost(t_node *stack_a, t_node *stack_b)
 	{
 		_set_section_cost(current, stack_b);
 		current = current->next;
+	}
+}
+
+static void	_set_self_cost_a(t_node *stack_a)
+{
+	int	len_stack_a;
+	int	i;
+
+	if (stack_a == NULL)
+		return ;
+	len_stack_a = ps_lstsize(stack_a);
+	i = 0;
+	while (i < len_stack_a)
+	{
+		stack_a->ra = i;
+		stack_a->rra = len_stack_a - i;
+		stack_a = stack_a->next;
+		i++;
 	}
 }
 
