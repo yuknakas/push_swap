@@ -1,16 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_3.c                                           :+:      :+:    :+:   */
+/*   03_swap_3.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 13:30:31 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/18 14:48:22 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/02/07 10:11:52 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "../header/push_swap.h"
 
 void	_swap_3(t_node **stack)
@@ -24,9 +23,7 @@ void	_swap_3(t_node **stack)
 		diff_value += 2;
 	if (((*stack)->next->nbr) > ((*stack)->prev->nbr))
 		diff_value += 4;
-	printf("diff_value = %d\n", diff_value);
 	_swap_3_execute(stack, diff_value);
-	printf("swap_3 done\n");
 	return ;
 }
 /*

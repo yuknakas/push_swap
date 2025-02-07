@@ -6,11 +6,10 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 14:31:42 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/31 13:17:07 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/02/07 10:12:21 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "../header/push_swap.h"
 
 static void	_lis_set_pos(t_node *last_node)
@@ -22,7 +21,7 @@ static void	_lis_set_pos(t_node *last_node)
 	}
 }
 
-static void	_lis_cin(int *length, t_node **arr, t_node *current, t_node *stack)
+static void	_lis_cin(int *length, t_node **arr, t_node *current)
 {
 	int	i;
 
@@ -76,7 +75,7 @@ static int	_lis_node(t_node *first, size_t stack_size)
 	_init_pos(first);
 	while (current != first)
 	{
-		_lis_cin(&length, lis_arr, current, first);
+		_lis_cin(&length, lis_arr, current);
 		current = current->next;
 	}
 	_lis_set_pos(lis_arr[length - 1]);

@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 13:46:32 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/24 15:51:39 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/02/07 09:59:23 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int	_sa(t_node **stack_a, t_node **stack_b, int put_opr)
 	(*stack_a)->next->nbr = tmp_value_a1;
 	if (put_opr == WRITE_OPR)
 		write(1, "sa\n", 3);
-	stack_b = UNUSED;
+	if (stack_b == NULL)
+		return (1);
 	return (1);
 }
 
@@ -38,7 +39,8 @@ int	_sb(t_node **stack_a, t_node **stack_b, int put_opr)
 	(*stack_b)->next->nbr = tmp_value_b1;
 	if (put_opr == WRITE_OPR)
 		write(1, "sb\n", 3);
-	stack_a = UNUSED;
+	if (stack_a == NULL)
+		return (1);
 	return (1);
 }
 
@@ -46,8 +48,10 @@ int	_ss(t_node **stack_a, t_node **stack_b, int put_opr)
 {
 	_sa(stack_a, stack_b, NO_OPR);
 	_sb(stack_a, stack_b, NO_OPR);
-	write(1, "ss\n", 3);
-	put_opr = UNUSED;
+	if (put_opr == WRITE_OPR)
+	{
+		write(1, "ss\n", 3);
+	}
 	return (1);
 }
 

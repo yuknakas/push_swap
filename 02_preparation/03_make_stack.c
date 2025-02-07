@@ -6,12 +6,11 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 11:07:08 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/01/24 15:05:01 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/02/07 10:12:37 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
-#include <stdio.h>
 
 static void	*_input_error(t_node *new_stack)
 {

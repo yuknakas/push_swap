@@ -6,12 +6,11 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 12:41:40 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/02/04 15:35:11 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/02/07 10:31:16 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
-#include <stdio.h>
 
 void	_normal_section(t_node *target, t_node *stack_b)
 {
