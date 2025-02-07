@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 12:41:40 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/02/07 11:27:37 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/02/07 16:36:52 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,25 +35,38 @@ static void	_normal_section(t_node *target, t_node *stack_b)
 
 static void	_largest_section(t_node *target, t_node *stack_b)
 {
-	t_node	*max_node;
+	int		max_sec;
 
-	max_node = _find_maximum(stack_b);
-	target->rb = 1;
-	while (stack_b != max_node)
+	max_sec = _find_maximum(stack_b)->section;
+	if (_only_one_section(stack_b, max_sec) == 0)
 	{
-		target->rb++;
-		stack_b = stack_b->next;
+		target->rb = 0;
+		target->rrb = 0;
+		return ;
 	}
-	target->rrb = ps_lstsize(stack_b) - target->rb;
+	target->rrb = 0;
+	stack_b = stack_b->prev;
+	while (stack_b->section != max_sec)
+	{
+		target->rrb++;
+		stack_b = stack_b->prev;
+	}
+	target->rb = ps_lstsize(stack_b) - target->rrb;
 }
 
 static void	_smallest_section(t_node *target, t_node *stack_b)
 {
-	t_node	*min_node;
+	int		min_sec;
 
-	min_node = _find_minimum(stack_b);
-	target->rb = 1;
-	while (stack_b != min_node)
+	min_sec = _find_minimum(stack_b)->section;
+	if (_only_one_section(stack_b, min_sec) == 0)
+	{
+		target->rb = 0;
+		target->rrb = 0;
+		return ;
+	}
+	target->rb = 0;
+	while (stack_b->section != min_sec)
 	{
 		target->rb++;
 		stack_b = stack_b->next;

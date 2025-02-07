@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 14:49:05 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/02/07 11:27:07 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/02/07 15:51:35 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ int			_rrb(t_node **stack_a, t_node **stack_b, int put_opr);
 int			_rrr(t_node **stack_a, t_node **stack_b, int put_opr);
 
 //tester
+int			_only_one_section(t_node *stack, int sec);
 void		_check_lis(t_node *stack_a);
 
 #endif

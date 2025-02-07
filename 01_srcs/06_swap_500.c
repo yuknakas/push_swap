@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 11:35:27 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/02/07 11:43:22 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/02/07 15:38:01 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ static void	_applicable_section(t_node *target, int *sections)
 	{
 		if (target->nbr < sections[i])
 		{
-			target->section = 1;
+			target->section = i;
 			return ;
 		}
 		i++;
 	}
 	if (target->nbr > sections[4])
-		target->section = 1;
+		target->section = 5;
 }
 
 static void	_set_section(int *sections, t_node *stack_a)
