@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_cheapest_node.c                                 :+:      :+:    :+:   */
+/*   03_cheapest_node.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 13:27:28 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/02/04 11:56:14 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/02/10 14:27:46 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	ps_execute_cheapest_node(t_node **stack_a, t_node **stack_b, char c)
 {
 	t_node	*min;
 
+	min = NULL;
 	if (c == 'a')
 		min = _chose_min_a(*stack_a);
 	else if (c == 'b')

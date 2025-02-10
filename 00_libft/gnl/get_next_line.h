@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_exec_input.c                                    :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/07 16:53:51 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/02/07 17:00:58 by yuknakas         ###   ########.fr       */
+/*   Created: 2024/11/22 09:35:04 by yuknakas          #+#    #+#             */
+/*   Updated: 2025/02/10 14:07:32 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/push_swap_bonus.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int	ps_exec_input(t_node **stack_a, t_node **stack_b, char *cmd)
-{
-	if (cmd[0] == 's')
-	{
-		if (cmd[1] == "a" && cmd[2] == '\0')
-			return (_sa(stack_a, stack_b, NO_OPR));
-		if (cmd[1] == 'b' && cmd[2] == '\0')
-			return (_sb(stack_a, stack_b, NO_OPR));
-		if (cmd[1] == 's' && cmd[2] == '\0')
-			return (_ss(stack_a, stack_b, NO_OPR));
-		return (-1)
-	}
-}
+# include "../header/libft.h"
+
+char	*get_next_line(int fd);
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5
+# endif
+
+#endif

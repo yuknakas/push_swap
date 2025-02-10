@@ -6,7 +6,7 @@
 #    By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/17 10:56:54 by yuknakas          #+#    #+#              #
-#    Updated: 2025/02/07 10:10:23 by yuknakas         ###   ########.fr        #
+#    Updated: 2025/02/10 14:50:31 by yuknakas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,28 +30,42 @@ SWAP	=	04_swap/00_set_stack_b.c 04_swap/01_set_big_stack_b.c \
 			04_swap/02_set_big_b_2.c 04_swap/03_cheapest_node.c 04_swap/04_execute_min.c \
 			04_swap/05_checker.c 04_swap/10_operation_1.c 04_swap/11_operation_2.c \
 			04_swap/12_operation_3.c
-BON		=	BON_01_Checker/checker.c
+BON		=	10_bonus/01_main.c 10_bonus/02_exec_input.c
+BON_UTIL=	01_srcs/13_cleaner.c $(PREP) 04_swap/05_checker.c 04_swap/10_operation_1.c \
+			04_swap/11_operation_2.c 04_swap/12_operation_3.c
 
 ALL_SRCS=	$(SRCS) $(PREP) $(COST) $(SWAP)
+BON_SRCS=	$(BON) $(BON_UTIL)
 OBJS	=	$(ALL_SRCS:.c=.o)
+BON_OBJS=	$(BON_SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(MAKE) -C ./libft
-	$(CCW) $(OBJS) -L./libft -lft -o $(NAME)
+	@$(MAKE) libft -C ./00_libft
+	@$(CCW) $(OBJS) -L./00_libft -lft -o $(NAME)
+	@echo "> make push_swap executed in current directory"
 
 %.o: %.c
-	$(CCW) -c $< -o $@
+	@$(CCW) -c $< -o $@
+
+bonus: $(BON_NAME)
+
+$(BON_NAME): $(BON_OBJS)
+	@$(MAKE) gnl -C ./00_libft
+	@$(CCW) $(BON_OBJS) -L./00_libft -lgnl -lft -o $(BON_NAME)
+	@echo "> make bonus_checker executed in current directory"
 
 clean:
-	$(MAKE) fclean -C ./libft
-	$(RMFLAG) $(OBJS)
+	@$(MAKE) clean -C ./00_libft
+	@$(RMFLAG) $(OBJS) $(BON_OBJS)
+	@echo "> make clean executed in current directory"
 
 fclean: clean
-	$(MAKE) fclean -C ./libft
-	$(RMFLAG) $(NAME)
+	@$(MAKE) fclean -C ./00_libft
+	@$(RMFLAG) $(NAME) $(BON_NAME)
+	@echo "> make fclean executed in current directory"
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re

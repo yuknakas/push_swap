@@ -6,14 +6,14 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 14:49:05 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/02/07 15:51:35 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/02/10 09:50:04 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libft/header/libft.h"
+# include "../00_libft/header/libft.h"
 # include <stdlib.h>
 
 # define WRITE_OPR 1
